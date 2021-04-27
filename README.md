@@ -1,11 +1,11 @@
-# rds_iam_example on RDS MySQL with MySQL cli, and Python code
+# rds_iam_example on RDS MySQL with mysql command line, and python
 
 MySQL, PostgreSQL RDS Support IAM database authentication and/or native database authentication Mechanisms
 
 This is example how to use RDS with AWS IAM Authentication, There are consideration as below:
 
 - Authentication tokens are used to validate the user.
-- Tokens have a lifetime of 15 minutes
+- Tokens have a lifetime of 15 minutes.
 - Connections per second are limited by the instance type of the database.
 - IAM auth maps DB user to IAM user or role.
 
