@@ -1,4 +1,4 @@
-# rds_iam_example with RDS MySQL
+# rds_iam_example on RDS MySQL with MySQL cli, and Python code
 
 MySQL, PostgreSQL RDS Support IAM database authentication and/or native database authentication Mechanisms
 
