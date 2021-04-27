@@ -1,4 +1,4 @@
-# rds_iam_example on RDS MySQL with mysql command line, and python
+# Example AWS IAM Authentication on RDS MySQL with mysql command line, and python
 
 MySQL, PostgreSQL RDS Support IAM database authentication and/or native database authentication Mechanisms
 
