@@ -1,0 +1,31 @@
+##### Step 1 Create iam user in DB
+mysql -h<rds_endpoint> -uadmin -p --port 3307 --ssl-ca=rds-ca-2019-root.pem
+
+CREATE USER iamuser IDENTIFIED WITH AWSAuthenticationPlugin AS 'RDS'; 
+
+select user,host from mysql.user;
+
+
+
+##### Step 2 Testing GenToken
+TOKEN="$(aws rds generate-db-auth-token --hostname <rds_endpoint> --port 3307 --username iamuser)"
+TOKEN="$(aws rds generate-db-auth-token --hostname <rds_endpoint> --port 3307 --username iamuser --profile RDSAppConnect_SSO-072446128127)"
+
+echo $TOKEN
+
+mysql -h<rds_endpoint> --ssl-ca=rds-ca-2019-root.pem --port 3307 \
+--enable-cleartext-plugin -uiamuser -p"$TOKEN"
+
+# For boto3 sdk example:
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.Python.html
+
+select user();
+
+
+##### Step 3 Testing change IAM authenticated in role
+-Login as Admin, and grant
+grant select on devmysql.t to 'iamuser'@'%';
+
+-Changing to iamuser2 in IAM
+
+-ReAuthenticated again
