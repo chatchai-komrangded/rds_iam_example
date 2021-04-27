@@ -2,13 +2,12 @@
 
 MySQL, PostgreSQL RDS Support IAM database authentication and/or native database authentication Mechanisms
 
-This is example how to use RDS with AWS IAM Authentication, This is alternative approach to:
+This is example how to use RDS with AWS IAM Authentication, There are consideration as below:
 
-- Authentication tokens are used to validate the user
+- Authentication tokens are used to validate the user.
 - Tokens have a lifetime of 15 minutes
-- Connections per second are limited by the instance type of the database
-- IAM auth maps DB user to IAM user or role
-- Connections per second are limited by the instance type of the database
+- Connections per second are limited by the instance type of the database.
+- IAM auth maps DB user to IAM user or role.
 
 MySQL authentication can be managed externally using IAM
 Authentication tokens are used to validate the user
